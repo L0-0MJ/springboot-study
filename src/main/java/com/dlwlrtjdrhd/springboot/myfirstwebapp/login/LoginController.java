@@ -12,9 +12,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class LoginController {
 
-    private AuthenticationService authenticationService;
+    private AuthenticationService authenticationService; //초기화 해야 쓸 수 있음
+    //private AuthenticationService authenticationService = new AuthenticationService(); 자바에서는 이렇게 초기화하지만 스프링에서는 직접 인스턴스와 결합하지 않음
 
-    public LoginController(AuthenticationService authenticationService) {// 생성자 만들면 스프링은 생성자 주입?을 이용함 주입하면 authen~~service 검색함=>bean으로 만들어야함
+    //스프링이 대신 결합하게 함
+    public LoginController(AuthenticationService authenticationService) {// 생성자 만들면 스프링은 생성자 주입?을 이용함, 주입위해 authen~~service 검색함=>
+        // AuthenticationService.java에 있는 클래스를 bean으로 만들어야함
         this.authenticationService = authenticationService;
     }
 
@@ -40,7 +43,7 @@ public class LoginController {
 
         if(authenticationService.authenticate(name, password)) {
             model.put("name", name);
-            model.put("password", password);
+
 
             //Authentication
             //name - mmjj

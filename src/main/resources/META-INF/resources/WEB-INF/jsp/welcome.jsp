@@ -7,7 +7,7 @@
 
     <body>
 
-     <div>welcome name is ${name}, pw ${password}</div>
+     <div>welcome name is ${name}</div>
 
 
 
