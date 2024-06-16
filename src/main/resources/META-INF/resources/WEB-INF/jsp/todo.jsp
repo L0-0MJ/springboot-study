@@ -3,7 +3,7 @@
 <html>
     <head>
         <title>
-        List todos page
+        add todos page
         </title>
     </head>
 
@@ -11,7 +11,11 @@
 
      <div>welcome name is ${name}</div>
 
-     <h1>Your Todos</h1>
+     <h1>Enter Todo Details</h1>
+     <form method="post">
+        Description: <input type = "text" name="description"/>
+        <input type = "submit"  />
+     </form>
      <table>
         <thead>
             <tr>
