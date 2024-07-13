@@ -24,7 +24,9 @@
   * todo.jsp 
 
 
-<h2>Delete todo</h2>
+<h2>Delete todo</h2> (7/14)
+
+
 * delete 버튼 링크추가
 * todo id를 받아오기 위해 쿼리파라미터 추가
   * listTodo.jsp
