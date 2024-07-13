@@ -30,7 +30,7 @@
                     <td>${todo.description}</td>
                     <td>${todo.targetDate}</td>
                     <td>${todo.done}</td>
-                    <td><a href="delete-todo?id=${todo.id}">DELETE ${todo.id}</a></td>
+                    <td><a href="delete-todo?id=${todo.id}">DELETE ${todo.id}</a></td> <!--쿼리 파라미터 사용해서 컨트롤러에게 todoid 전달-->
                 </tr>
 
              </c:forEach>

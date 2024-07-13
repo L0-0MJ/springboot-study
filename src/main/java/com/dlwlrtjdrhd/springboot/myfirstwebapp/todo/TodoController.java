@@ -48,9 +48,9 @@ public class TodoController {
     }
 
     @RequestMapping("delete-todo")
-    public String deleteTodo(@RequestParam int id){
+    public String deleteTodo(@RequestParam int id){ //id값을 잡기위해 RequestParam 사용
         //Delete todo
-        todoService.deleteById(id);
+        todoService.deleteById(id); //todo를 삭제하는 로직
         return "redirect:list-todos";
     }
 

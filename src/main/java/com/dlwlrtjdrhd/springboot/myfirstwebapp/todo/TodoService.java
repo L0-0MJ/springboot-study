@@ -31,9 +31,9 @@ public class TodoService {
 
     public void deleteById(int id){
         //함수형 프로그래밍
-        //todo.getId() == id
-        //todo -> todo.getId() == id
+        //todo.getId() == id 이면 그 todo를 삭제
+        //todo -> todo.getId() == id  람다함수 형식, bean -> 조건 , todo에 있는 모든 bean에 대해 이 조건을 실행
         Predicate<? super Todo> predicate = todo -> todo.getId() == id;
-        todos.removeIf(predicate);
+        todos.removeIf(predicate);// removeif로 predicate를 모든 todo에 실행 , 조건이 맞으면 삭제
     }
 }

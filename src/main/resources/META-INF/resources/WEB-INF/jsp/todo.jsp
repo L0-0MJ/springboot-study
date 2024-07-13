@@ -39,6 +39,7 @@
                     <td>${todo.description}</td>
                     <td>${todo.targetDate}</td>
                     <td>${todo.done}</td>
+
                 </tr>
              </c:forEach>
             </tbody>
