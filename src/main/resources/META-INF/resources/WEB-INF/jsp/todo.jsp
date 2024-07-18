@@ -3,6 +3,8 @@
 
 <html>
     <head>
+    <link href = "webjars/bootstrap/5.1.3/css/bootstrap.min.css" rel = "stylesheet">
+    <link href = "webjars\bootstrap-datepicker\1.9.0\css\bootstrap-datepicker.standalone.min.css"  rel = "stylesheet">
         <title>
         add todos page
         </title>
@@ -10,44 +12,36 @@
 
     <body>
 
-     <div>welcome name is ${name}</div>
+     <div class = "container">
 
      <h1>Enter Todo Details</h1>
      <form:form method="post" modelAttribute = "todo"> <!--bean에 맵핑(addNewTodo에 있는 Todo todo -->
-        Description: <form:input type = "text" path="description" required = "required"/> <!--path 통해서 description 멤버변수에 맵핑-->
-        <!--숨겨진 변수 만들기-->
-        <form:error path="description"/>
+        <fieldset class="mb-3">
+            <form:label path = "description">Description</form:label>
+            <form:input type = "text" path="description" required = "required"/> <!--path 통해서 description 멤버변수에 맵핑-->
+            <!--숨겨진 변수 만들기-->
+            <form:errors path="description" cssClass = "text-warning"/>
+        </fieldset>
+
+        <fieldset class="mb-3">
+            <form:label path = "targetDate">Target Date</form:label>
+            <form:input type = "text" path="targetDate" required = "required"/> <!--path 통해서 description 멤버변수에 맵핑-->
+            <!--숨겨진 변수 만들기-->
+            <form:errors path="targetDate" cssClass = "text-warning"/>
+        </fieldset>
         <form:input type = "hidden" path="id"/>
         <form:input type = "hidden" path="done"/>
 
-        <input type = "submit"  />
+        <input type = "submit"  class ="btn btn-success" />
      </form:form>
-     <table>
-        <thead>
-            <tr>
-                <th>id</th>
-                <th>Description</th>
-                <th>Target Date</th>
-                <th>Is Done?</th>
-            </tr>
-         </thead>
-         <tbody>
-
-             <c:forEach items="${todos}" var = "todo">
-                <tr>
-                    <td>${todo.id}</td>
-                    <td>${todo.description}</td>
-                    <td>${todo.targetDate}</td>
-                    <td>${todo.done}</td>
-
-                </tr>
-             </c:forEach>
-            </tbody>
-        </table>
-        <a href="add-todo">Add Todo</a>
-        </body>
-    </html>
-
-
-
-
+     </div>
+     <script src="webjars\bootstrap\5.1.3\bootstrap-5.1.3.jar!\META-INF\resources\webjars\bootstrap\5.1.3\js\bootstrap.min.js"></script>
+     <script src="webjars\jquery\3.6.0\jquery.min.js"></script>
+     <script src ="webjars\bootstrap-datepicker\1.9.0\js\bootstrap-datepicker.min.js"></script>
+    <script type="text/javascript">
+    $('#targetDate').datepicker({
+    format:'yyyy-mm-dd',
+        startDate:'-3d'
+        }); </script>
+     </body>
+</html>

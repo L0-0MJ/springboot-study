@@ -36,4 +36,16 @@ public class TodoService {
         Predicate<? super Todo> predicate = todo -> todo.getId() == id;
         todos.removeIf(predicate);// removeif로 predicate를 모든 todo에 실행 , 조건이 맞으면 삭제
     }
+
+    public Todo findById(int id) {
+        Predicate<? super Todo> predicate = todo -> todo.getId() == id;
+        Todo todo = todos.stream().filter(predicate).findFirst().get(); //todo의 스트림을 생성, 하나씩 모든 todo 확인, filter에 predicate 사용해서 필터링, 첫번째 값만 가져감, 찾으면 그걸 받기위해 get사용
+        //for문으로 todo를 반복해서 원하는 것을 찾을 수도 있고, 함수형 프로그래밍을 사용할 수도 있음
+        return todo;
+    }
+
+    public void updateTodo(Todo todo) {
+        deleteById(todo.getId());
+        todos.add(todo); //업데이트하기 위해 기존값을 삭제하고 새로운값을 추가
+    }
 }
